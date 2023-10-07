@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetic Financialization: The Zero Address Exhibition</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    body {
+        display: flex;
+        flex-direction: row; /* horizontal layout */
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 100vh;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+#description {
+    max-width: 800px;
+    margin-bottom: 3em;
+    text-align: center; 
+}
+
+    /* Adjustments for text containers */
+    #description, #results {
+        margin: 1em;  
+        padding: 2em;
+        max-width: 40%; /* Adjust as needed */
+        min-width: 300px;
+    }
+
+    canvas {
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 55%; /* Adjust as needed */
+        height: 100vh;
+        border-left: 2px solid #000; /* Add border to left side of the maze */
+    }
+
+#description h1 {
+    font-size: 2.4em;
+    margin-bottom: 2em;
+    font-weight: bold;
+}
+
+#description p {
+    font-size: 1.1em;
+    margin-bottom: 1.5em;
+    text-align: justify;
+}
+
+#results {
+    position: fixed;
+    right: 2em;
+    bottom: 2em;
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.8); /* A subtle white background for better readability */
+    padding: 0.8em;
+    border-radius: 5px; /* Softens the edges */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* A subtle shadow for depth */
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    margin-top: 0;
+}
+
+p {
+    margin: 0.3em 0;
+    font-size: 0.9em;
+    line-height: 1.3em; /* Tighter line height */
+}
+
+#result.flash {
+    font-size: 1.4em;
+    color: #000;
+    font-weight: bold;
+    animation: flash 1.5s linear infinite;
+}
+
+span {
+    color: #000;
+    font-weight: bold;
+}
+
+@keyframes flash {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="description">
+        <h1>Searching for Null:
+            Ethereum's Address(0). 2023</h1>
+            <p>"Searching for Null" plunges into the enigma of Ethereum's  <a href="https://etherscan.io/address/0x0000000000000000000000000000000000000000" target="_blank" rel="noopener noreferrer">0x0000000000000000000000000000000000000000</a> address, a digital void that harbors 'burned' funds, where transfers are sent to throw away a key. This address, often metaphorically likened to a black hole, receives assets when owners opt to discard their access keys, effectively sending value into a state of absence.</p>
+            <p>While brute forcing secret keys remains a double-edged sword—redeeming lost assets on one side and facilitating covert heists on the other—this project channels that intense computation to challenge a crypto myth. Could the so-called 'burned' assets ever be reclaimed? And if unearthed, where would they be best sent? 
+            </p>
+        <p>As the program relentlessly generates wallets and secret keys, striving for that elusive alignment with address(0), its journey is visualized through a maze's ever-evolving pathways, with shifting hues capturing its futile computational ebbs and flows. By juxtaposing the energy poured into the crypto architecture against that used for piracy, "Searching for Null" offers a contemplation into a burgeoning synthetic financial folklore. 
+        </p>
+    </div>
+    <script src="maze.js"></script>
+    <div id="results">
+        <h2>Live Search Results</h2>
+        <p id="result"></p>
+        <p>Latest Private Key: <span id="latestPrivateKey"></span></p>
+        <p>Address: <span id="latestAddress"></span></p>
+        <p>Free Memory: <span id="freeMemory"></span></p>
+        <p>Total Memory: <span id="totalMemory"></span></p>
+        <p>CPU Load: <span id="cpuLoad"></span></p>
+        <p>Attempts: <span id="attempts"></span></p>
+    </div>
+    <div id="notes">
+        <h2>Exhibition Notes:</h2>
+        <ul>
+            <li><a href="https://lbc.cryptoguru.org/stats" target="_blank" rel="noopener noreferrer">Large Bitcoin Collider Stats</a></li>
+            <li><a href="https://stackoverflow.com/questions/48219716/what-is-address0-in-solidity#:~:text=Address%2Dzero(0)%20represents,It%20looks%20like%20this%3A%200x0000000000000000000000000000000000000000" target="_blank" rel="noopener noreferrer">StackOverflow: What is address(0) in Solidity?</a></li>
+        </ul>
+    </div>
+    <script>
+        // Assuming this is the correct line that gets executed on NOT FOUND
+        document.getElementById('result').classList.add('flash');
+        
+    </script>
+</body>
+
+</html>
