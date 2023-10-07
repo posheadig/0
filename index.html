@@ -97,6 +97,29 @@ span {
     }
 }
 
+        @media only screen and (max-width: 600px) {
+    body {
+        flex-direction: column; /* Stack vertically */
+        align-items: center;
+        padding: 1em 0;
+    }
+    #description, #results {
+        max-width: 90%; /* Take up most of the screen width */
+        min-width: auto;
+    }
+    canvas {
+        width: 90%; /* Adjust as needed */
+        height: 40vh; /* Adjust as needed */
+        border-left: none; /* remove left border */
+        margin-top: 2em; /* Add some spacing */
+    }
+    #results {
+        position: relative;
+        bottom: auto;
+        right: auto;
+    }
+}
+
     </style>
 </head>
 
