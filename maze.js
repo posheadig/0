@@ -4,7 +4,7 @@ let cols, rows;
 let w = 20; // Width of the cell
 let current; // Current spot
 let stack = [];
-const ws = new WebSocket('ws://161.35.132.35:8080');
+const ws = new WebSocket('wss://hook.nulladdress.xyz:8080');
 let latestPrivateKey = '';
 let currentColor;
 let targetColor;
